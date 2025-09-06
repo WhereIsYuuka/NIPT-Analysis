@@ -1,0 +1,8 @@
+,0
+n_obs,1082
+n_patients,267
+group_method,quantile
+group_counts,"{'Q1': 67, 'Q2': 67, 'Q4': 67, 'Q3': 66}"
+LMM_metrics,"{'rmse': 0.031748494651216395, 'mae': 0.026491338974457886, 'pearson_r': 0.34466049952567823, 'var_fixed': 0.00020444785352772367, 'var_random': 5.750476263338831e-05, 'resid_var': 0.00019860581152380093, 'marginal_r2': 0.44391295704959916, 'conditional_r2': 0.5687717353862529, 'icc': 0.799738501654191, 'n_obs': 1082, 'n_patients': 267}"
+cox_success,True
+GEE_available,True

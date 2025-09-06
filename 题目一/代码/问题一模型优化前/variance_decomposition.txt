@@ -1,0 +1,8 @@
+var_fixed: 0.0002101503553909476
+var_random: 0.0009453842222174103
+resid_var: 0.00020776627203207605
+marginal_R2: 0.1541481877946266
+conditional_R2: 0.8476005702726045
+denom: 0.001363300849640434
+rand_pred: array (saved separately)
+pred_fixed: array (saved separately)

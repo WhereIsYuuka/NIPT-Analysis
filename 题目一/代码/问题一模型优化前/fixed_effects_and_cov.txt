@@ -1,0 +1,17 @@
+Fixed effects:
+Intercept    0.039896
+gest_week    0.000514
+bmi         -0.000655
+dtype: float64
+
+Random effects covariance (cov_re):
+                  Group     gest_week           bmi
+Group      2.075422e-04  1.795310e-08 -6.697124e-06
+gest_week  1.795310e-08  7.257497e-08  7.904349e-08
+bmi       -6.697124e-06  7.904349e-08  8.097175e-07
+
+Residual scale:
+0.00020776627203207605
+
+LogLik, AIC, BIC:
+llf=2531.4796521254393, aic=-5042.959304250879, bic=-4993.093639656814

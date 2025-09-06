@@ -1,0 +1,208 @@
+[2025-09-06 04:50:46] Starting run. Outputs -> C:\Users\admin\Desktop\国赛论文\问题二结果_final
+[2025-09-06 04:50:46] Reading data from: C:\Users\admin\Desktop\国赛论文\修改后附件男.xlsx
+[2025-09-06 04:50:47] Raw data shape: (1082, 30)
+[2025-09-06 04:50:47] Columns: 序号, 孕妇代码, 年龄, 身高, 体重, 检测日期同最后一次月经的时间差, IVF妊娠, 检测抽血次数, 检测孕周, 孕妇BMI, 原始读段数, 在参考基因组上比对的比例, 重复读段的比例, 唯一比对的读段数  , GC含量, 13号染色体的Z值, 18号染色体的Z值, 21号染色体的Z值, X染色体的Z值, Y染色体的Z值, Y染色体浓度, X染色体浓度, 13号染色体的GC含量, 18号染色体的GC含量, 21号染色体的GC含量, 被过滤掉读段数的比例, 染色体的非整倍体, 怀孕次数, 生产次数, 胎儿是否健康
+[2025-09-06 04:50:47] Auto-detected columns mapping: {'patient': '孕妇代码', 'gest': '检测孕周', 'bmi': '孕妇BMI', 'yconc': 'Y染色体浓度', 'healthy': '胎儿是否健康'}
+[2025-09-06 04:50:47] Dropped 0 rows with missing patient/gest_day/bmi/yconc; remaining 1082 rows.
+[2025-09-06 04:50:47] BMI stats: {'count': 1082.0, 'mean': 32.28879078882743, 'std': 2.972432009058641, 'min': 20.703125, '25%': 30.208805577903597, '50%': 31.8115975966851, '75%': 33.92623703353835, 'max': 46.875}
+[2025-09-06 04:50:47] gest_day stats: {'count': 1082.0, 'mean': 117.9195933456562, 'std': 28.53412201178469, 'min': 77.0, '25%': 93.0, '50%': 112.0, '75%': 140.0, 'max': 203.0}
+[2025-09-06 04:50:47] yconc stats: {'count': 1082.0, 'mean': 0.07718697843807763, 'std': 0.03351841045704469, 'min': 0.010003887, '25%': 0.051381268, '50%': 0.07506555749999999, '75%': 0.09893700425, 'max': 0.234217554}
+[2025-09-06 04:50:47] n_groups=267, pct groups with >=3 obs=0.940, >=5 obs=0.120
+[2025-09-06 04:50:47] Decision use_random_slope = True
+[2025-09-06 04:50:47] Set N_MC=500, SIM_TAUS=[0.001, 0.002, 0.005]
+[2025-09-06 04:50:47] Clinical group unique patient counts: {'18.5-24': 1, '24-28': 7, '28-32': 151, '>=32': 147}
+[2025-09-06 04:50:47] Custom bins unique patient counts: {'28-30': 77, '30-32': 121, '32-35': 113, '<28': 8, '>=35': 53}
+[2025-09-06 04:50:47] Group method chosen: quantile
+[2025-09-06 04:50:47] Final bmi_group patient counts (unique):
+[2025-09-06 04:50:47] {'Q1': 92, 'Q2': 102, 'Q3': 101, 'Q4': 84}
+[2025-09-06 04:50:47] Fitting LMM: formula=yconc ~ gest_day_c + bmi_c, re_formula=~gest_day_c
+[2025-09-06 04:50:48] ML fit converged: True
+[2025-09-06 04:50:52] REML fit did not converge; using ML estimates as final model (fallback).
+[2025-09-06 04:50:52] Saved LMM_summary.txt
+[2025-09-06 04:50:52] LMM fixed effects:
+{'Intercept': 0.07841324942830176, 'gest_day_c': 0.0004758918797169715, 'bmi_c': -0.0011933509628687831}
+[2025-09-06 04:50:52] Random effects cov (cov_re):
+               Group    gest_day_c
+Group       0.000841  1.898944e-06
+gest_day_c  0.000002  7.415985e-08
+[2025-09-06 04:50:52] Residual variance (scale): 0.00020793679024699838
+[2025-09-06 04:50:52] Saved per_patient_tstar.csv (contains t_star_clean and bmi_group)
+[2025-09-06 04:50:52] Saved group_recommendations.csv
+[2025-09-06 04:50:52] Group recommendations (printed):
+[2025-09-06 04:50:52]   bmi_group    n  median_tstar  p90_tstar
+0        Q1   92     81.485950  82.119036
+1        Q2  102     82.848712  83.938923
+2        Q3  101     83.244392  84.018059
+3        Q4   84     88.957453  92.797798
+[2025-09-06 04:50:52] Saved per_patient_survival.csv
+[2025-09-06 04:50:52] Saved km_by_bmi_group.png
+[2025-09-06 04:50:52] Log-rank result: multivariate_logrank_test: test_statistic=5.6130766557421605, p_value=0.13202965377296746, df=3
+[2025-09-06 04:50:52] Cox diagnostics: n_events=369, bmi variance >0? True
+[2025-09-06 04:50:52] Cox fit successful (no penalizer). Summary saved.
+[2025-09-06 04:50:52] Starting measurement-error sensitivity: N_MC=500, SIM_TAUS=[0.001, 0.002, 0.005]
+[2025-09-06 04:50:52] Simulating for tau=0.001
+[2025-09-06 04:50:52] Finished tau=0.001
+[2025-09-06 04:50:52] Simulating for tau=0.002
+[2025-09-06 04:50:52] Finished tau=0.002
+[2025-09-06 04:50:52] Simulating for tau=0.005
+[2025-09-06 04:50:52] Finished tau=0.005
+[2025-09-06 04:50:52] Saved measurement_error_sim_results.csv and per_patient_results_full.csv
+[2025-09-06 04:50:53] Saved tstar_vs_tau.png
+[2025-09-06 04:50:53] Saved run_summary.csv with: {'total_obs': 1082, 'n_groups': 267, 'pct_ge3': 0.9400749063670412, 'pct_ge5': 0.1198501872659176, 'use_random_slope': True, 'group_method': 'quantile', 'N_MC': 500, 'SIM_TAUS': [0.001, 0.002, 0.005], 'n_events_first_hit': 369}
+[2025-09-06 04:50:53] Run finished. Check outputs in: C:\Users\admin\Desktop\国赛论文\问题二结果_final
+[2025-09-06 13:34:09] Starting run. Outputs -> C:\Users\admin\Desktop\国赛论文\问题二结果_final
+[2025-09-06 13:34:09] Reading data from: C:\Users\admin\Desktop\国赛论文\修改后附件男.xlsx
+[2025-09-06 13:34:10] Raw data shape: (1082, 30)
+[2025-09-06 13:34:10] Columns: 序号, 孕妇代码, 年龄, 身高, 体重, 检测日期同最后一次月经的时间差, IVF妊娠, 检测抽血次数, 检测孕周, 孕妇BMI, 原始读段数, 在参考基因组上比对的比例, 重复读段的比例, 唯一比对的读段数  , GC含量, 13号染色体的Z值, 18号染色体的Z值, 21号染色体的Z值, X染色体的Z值, Y染色体的Z值, Y染色体浓度, X染色体浓度, 13号染色体的GC含量, 18号染色体的GC含量, 21号染色体的GC含量, 被过滤掉读段数的比例, 染色体的非整倍体, 怀孕次数, 生产次数, 胎儿是否健康
+[2025-09-06 13:34:10] Auto-detected columns mapping: {'patient': '孕妇代码', 'gest': '检测孕周', 'bmi': '孕妇BMI', 'yconc': 'Y染色体浓度', 'healthy': '胎儿是否健康'}
+[2025-09-06 13:34:10] Dropped 0 rows with missing patient/gest_day/bmi/yconc; remaining 1082 rows.
+[2025-09-06 13:34:10] BMI stats: {'count': 1082.0, 'mean': 32.28879078882743, 'std': 2.972432009058641, 'min': 20.703125, '25%': 30.208805577903597, '50%': 31.8115975966851, '75%': 33.92623703353835, 'max': 46.875}
+[2025-09-06 13:34:10] gest_day stats: {'count': 1082.0, 'mean': 117.9195933456562, 'std': 28.53412201178469, 'min': 77.0, '25%': 93.0, '50%': 112.0, '75%': 140.0, 'max': 203.0}
+[2025-09-06 13:34:10] yconc stats: {'count': 1082.0, 'mean': 0.07718697843807763, 'std': 0.03351841045704469, 'min': 0.010003887, '25%': 0.051381268, '50%': 0.07506555749999999, '75%': 0.09893700425, 'max': 0.234217554}
+[2025-09-06 13:34:10] n_groups=267, pct groups with >=3 obs=0.940, >=5 obs=0.120
+[2025-09-06 13:34:10] Decision use_random_slope = True
+[2025-09-06 13:34:10] Set N_MC=500, SIM_TAUS=[0.001, 0.002, 0.005]
+[2025-09-06 13:34:10] Clinical group unique patient counts: {'18.5-24': 1, '24-28': 7, '28-32': 151, '>=32': 147}
+[2025-09-06 13:34:10] Custom bins unique patient counts: {'28-30': 77, '30-32': 121, '32-35': 113, '<28': 8, '>=35': 53}
+[2025-09-06 13:34:10] Group method chosen: quantile
+[2025-09-06 13:34:10] Final bmi_group patient counts (unique):
+[2025-09-06 13:34:10] {'Q1': 92, 'Q2': 102, 'Q3': 101, 'Q4': 84}
+[2025-09-06 13:34:10] Fitting LMM: formula=yconc ~ gest_day_c + bmi_c, re_formula=~gest_day_c
+[2025-09-06 13:34:12] ML fit converged: True
+[2025-09-06 13:34:15] REML fit did not converge; using ML estimates as final model (fallback).
+[2025-09-06 13:34:15] Saved LMM_summary.txt
+[2025-09-06 13:34:15] LMM fixed effects:
+{'Intercept': 0.07841324942830176, 'gest_day_c': 0.0004758918797169715, 'bmi_c': -0.0011933509628687831}
+[2025-09-06 13:34:15] Random effects cov (cov_re):
+               Group    gest_day_c
+Group       0.000841  1.898944e-06
+gest_day_c  0.000002  7.415985e-08
+[2025-09-06 13:34:15] Residual variance (scale): 0.00020793679024699838
+[2025-09-06 13:34:15] Saved per_patient_tstar.csv (contains t_star_clean and bmi_group)
+[2025-09-06 13:34:15] Saved group_recommendations.csv
+[2025-09-06 13:34:15] Group recommendations (printed):
+[2025-09-06 13:34:15]   bmi_group    n  median_tstar  p90_tstar
+0        Q1   92     81.485950  82.119036
+1        Q2  102     82.848712  83.938923
+2        Q3  101     83.244392  84.018059
+3        Q4   84     88.957453  92.797798
+[2025-09-06 13:34:15] Saved per_patient_survival.csv
+[2025-09-06 13:34:16] Saved km_by_bmi_group.png
+[2025-09-06 13:34:16] Log-rank result: multivariate_logrank_test: test_statistic=5.6130766557421605, p_value=0.13202965377296746, df=3
+[2025-09-06 13:34:16] Cox diagnostics: n_events=369, bmi variance >0? True
+[2025-09-06 13:34:16] Cox fit successful (no penalizer). Summary saved.
+[2025-09-06 13:34:16] Starting measurement-error sensitivity: N_MC=500, SIM_TAUS=[0.001, 0.002, 0.005]
+[2025-09-06 13:34:16] Simulating for tau=0.001
+[2025-09-06 13:34:16] Finished tau=0.001
+[2025-09-06 13:34:16] Simulating for tau=0.002
+[2025-09-06 13:34:16] Finished tau=0.002
+[2025-09-06 13:34:16] Simulating for tau=0.005
+[2025-09-06 13:34:16] Finished tau=0.005
+[2025-09-06 13:34:16] Saved measurement_error_sim_results.csv and per_patient_results_full.csv
+[2025-09-06 13:34:16] Saved tstar_vs_tau.png
+[2025-09-06 13:34:16] Saved run_summary.csv with: {'total_obs': 1082, 'n_groups': 267, 'pct_ge3': 0.9400749063670412, 'pct_ge5': 0.1198501872659176, 'use_random_slope': True, 'group_method': 'quantile', 'N_MC': 500, 'SIM_TAUS': [0.001, 0.002, 0.005], 'n_events_first_hit': 369}
+[2025-09-06 13:34:16] Run finished. Check outputs in: C:\Users\admin\Desktop\国赛论文\问题二结果_final
+[2025-09-06 13:35:59] Starting run. Outputs -> C:\Users\admin\Desktop\国赛论文\问题二结果_final
+[2025-09-06 13:35:59] Reading data from: C:\Users\admin\Desktop\国赛论文\修改后附件男.xlsx
+[2025-09-06 13:35:59] Raw data shape: (1082, 30)
+[2025-09-06 13:35:59] Columns: 序号, 孕妇代码, 年龄, 身高, 体重, 检测日期同最后一次月经的时间差, IVF妊娠, 检测抽血次数, 检测孕周, 孕妇BMI, 原始读段数, 在参考基因组上比对的比例, 重复读段的比例, 唯一比对的读段数  , GC含量, 13号染色体的Z值, 18号染色体的Z值, 21号染色体的Z值, X染色体的Z值, Y染色体的Z值, Y染色体浓度, X染色体浓度, 13号染色体的GC含量, 18号染色体的GC含量, 21号染色体的GC含量, 被过滤掉读段数的比例, 染色体的非整倍体, 怀孕次数, 生产次数, 胎儿是否健康
+[2025-09-06 13:35:59] Auto-detected columns mapping: {'patient': '孕妇代码', 'gest': '检测孕周', 'bmi': '孕妇BMI', 'yconc': 'Y染色体浓度', 'healthy': '胎儿是否健康'}
+[2025-09-06 13:35:59] Dropped 0 rows with missing patient/gest_day/bmi/yconc; remaining 1082 rows.
+[2025-09-06 13:35:59] BMI stats: {'count': 1082.0, 'mean': 32.28879078882743, 'std': 2.972432009058641, 'min': 20.703125, '25%': 30.208805577903597, '50%': 31.8115975966851, '75%': 33.92623703353835, 'max': 46.875}
+[2025-09-06 13:35:59] gest_day stats: {'count': 1082.0, 'mean': 117.9195933456562, 'std': 28.53412201178469, 'min': 77.0, '25%': 93.0, '50%': 112.0, '75%': 140.0, 'max': 203.0}
+[2025-09-06 13:35:59] yconc stats: {'count': 1082.0, 'mean': 0.07718697843807763, 'std': 0.03351841045704469, 'min': 0.010003887, '25%': 0.051381268, '50%': 0.07506555749999999, '75%': 0.09893700425, 'max': 0.234217554}
+[2025-09-06 13:35:59] n_groups=267, pct groups with >=3 obs=0.940, >=5 obs=0.120
+[2025-09-06 13:35:59] Decision use_random_slope = True
+[2025-09-06 13:35:59] Set N_MC=500, SIM_TAUS=[0.001, 0.002, 0.005]
+[2025-09-06 13:35:59] Clinical group unique patient counts: {'18.5-24': 1, '24-28': 7, '28-32': 151, '>=32': 147}
+[2025-09-06 13:35:59] Custom bins unique patient counts: {'28-30': 77, '30-32': 121, '32-35': 113, '<28': 8, '>=35': 53}
+[2025-09-06 13:35:59] Group method chosen: quantile
+[2025-09-06 13:35:59] Final bmi_group patient counts (unique):
+[2025-09-06 13:35:59] {'Q1': 92, 'Q2': 102, 'Q3': 101, 'Q4': 84}
+[2025-09-06 13:35:59] Fitting LMM: formula=yconc ~ gest_day_c + bmi_c, re_formula=~gest_day_c
+[2025-09-06 13:36:01] ML fit converged: True
+[2025-09-06 13:36:05] REML fit did not converge; using ML estimates as final model (fallback).
+[2025-09-06 13:36:05] Saved LMM_summary.txt
+[2025-09-06 13:36:05] LMM fixed effects:
+{'Intercept': 0.07841324942830176, 'gest_day_c': 0.0004758918797169715, 'bmi_c': -0.0011933509628687831}
+[2025-09-06 13:36:05] Random effects cov (cov_re):
+               Group    gest_day_c
+Group       0.000841  1.898944e-06
+gest_day_c  0.000002  7.415985e-08
+[2025-09-06 13:36:05] Residual variance (scale): 0.00020793679024699838
+[2025-09-06 13:36:05] Saved per_patient_tstar.csv (contains t_star_clean and bmi_group)
+[2025-09-06 13:36:05] Saved group_recommendations.csv
+[2025-09-06 13:36:05] Group recommendations (printed):
+[2025-09-06 13:36:05]   bmi_group    n  median_tstar  p90_tstar
+0        Q1   92     81.485950  82.119036
+1        Q2  102     82.848712  83.938923
+2        Q3  101     83.244392  84.018059
+3        Q4   84     88.957453  92.797798
+[2025-09-06 13:36:05] Saved per_patient_survival.csv
+[2025-09-06 13:36:05] Saved km_by_bmi_group.png
+[2025-09-06 13:36:05] Log-rank result: multivariate_logrank_test: test_statistic=5.6130766557421605, p_value=0.13202965377296746, df=3
+[2025-09-06 13:36:05] Cox diagnostics: n_events=369, bmi variance >0? True
+[2025-09-06 13:36:05] Cox fit successful (no penalizer). Summary saved.
+[2025-09-06 13:36:05] Starting measurement-error sensitivity: N_MC=500, SIM_TAUS=[0.001, 0.002, 0.005]
+[2025-09-06 13:36:05] Simulating for tau=0.001
+[2025-09-06 13:36:05] Finished tau=0.001
+[2025-09-06 13:36:05] Simulating for tau=0.002
+[2025-09-06 13:36:05] Finished tau=0.002
+[2025-09-06 13:36:05] Simulating for tau=0.005
+[2025-09-06 13:36:06] Finished tau=0.005
+[2025-09-06 13:36:06] Saved measurement_error_sim_results.csv and per_patient_results_full.csv
+[2025-09-06 13:36:06] Saved tstar_vs_tau.png
+[2025-09-06 13:36:06] Saved run_summary.csv with: {'total_obs': 1082, 'n_groups': 267, 'pct_ge3': 0.9400749063670412, 'pct_ge5': 0.1198501872659176, 'use_random_slope': True, 'group_method': 'quantile', 'N_MC': 500, 'SIM_TAUS': [0.001, 0.002, 0.005], 'n_events_first_hit': 369}
+[2025-09-06 13:36:06] Run finished. Check outputs in: C:\Users\admin\Desktop\国赛论文\问题二结果_final
+[2025-09-06 14:11:41] Starting run. Outputs -> C:\Users\admin\Desktop\国赛论文\问题二结果_final
+[2025-09-06 14:11:41] Reading data from: C:\Users\admin\Desktop\国赛论文\修改后附件男.xlsx
+[2025-09-06 14:11:42] Raw data shape: (1082, 30)
+[2025-09-06 14:11:42] Columns: 序号, 孕妇代码, 年龄, 身高, 体重, 检测日期同最后一次月经的时间差, IVF妊娠, 检测抽血次数, 检测孕周, 孕妇BMI, 原始读段数, 在参考基因组上比对的比例, 重复读段的比例, 唯一比对的读段数  , GC含量, 13号染色体的Z值, 18号染色体的Z值, 21号染色体的Z值, X染色体的Z值, Y染色体的Z值, Y染色体浓度, X染色体浓度, 13号染色体的GC含量, 18号染色体的GC含量, 21号染色体的GC含量, 被过滤掉读段数的比例, 染色体的非整倍体, 怀孕次数, 生产次数, 胎儿是否健康
+[2025-09-06 14:11:42] Auto-detected columns mapping: {'patient': '孕妇代码', 'gest': '检测孕周', 'bmi': '孕妇BMI', 'yconc': 'Y染色体浓度', 'healthy': '胎儿是否健康'}
+[2025-09-06 14:11:42] Dropped 0 rows with missing patient/gest_day/bmi/yconc; remaining 1082 rows.
+[2025-09-06 14:11:42] BMI stats: {'count': 1082.0, 'mean': 32.28879078882743, 'std': 2.972432009058641, 'min': 20.703125, '25%': 30.208805577903597, '50%': 31.8115975966851, '75%': 33.92623703353835, 'max': 46.875}
+[2025-09-06 14:11:42] gest_day stats: {'count': 1082.0, 'mean': 117.9195933456562, 'std': 28.53412201178469, 'min': 77.0, '25%': 93.0, '50%': 112.0, '75%': 140.0, 'max': 203.0}
+[2025-09-06 14:11:42] yconc stats: {'count': 1082.0, 'mean': 0.07718697843807763, 'std': 0.03351841045704469, 'min': 0.010003887, '25%': 0.051381268, '50%': 0.07506555749999999, '75%': 0.09893700425, 'max': 0.234217554}
+[2025-09-06 14:11:42] n_groups=267, pct groups with >=3 obs=0.940, >=5 obs=0.120
+[2025-09-06 14:11:42] Decision use_random_slope = True
+[2025-09-06 14:11:42] Set N_MC=500, SIM_TAUS=[0.001, 0.002, 0.005]
+[2025-09-06 14:11:42] Clinical group unique patient counts: {'18.5-24': 1, '24-28': 7, '28-32': 151, '>=32': 147}
+[2025-09-06 14:11:42] Custom bins unique patient counts: {'28-30': 77, '30-32': 121, '32-35': 113, '<28': 8, '>=35': 53}
+[2025-09-06 14:11:42] Group method chosen: quantile
+[2025-09-06 14:11:42] Final bmi_group patient counts (unique):
+[2025-09-06 14:11:42] {'Q1': 92, 'Q2': 102, 'Q3': 101, 'Q4': 84}
+[2025-09-06 14:11:42] Fitting LMM: formula=yconc ~ gest_day_c + bmi_c, re_formula=~gest_day_c
+[2025-09-06 14:11:44] ML fit converged: True
+[2025-09-06 14:11:47] REML fit did not converge; using ML estimates as final model (fallback).
+[2025-09-06 14:11:47] Saved LMM_summary.txt
+[2025-09-06 14:11:47] LMM fixed effects:
+{'Intercept': 0.07841324942830176, 'gest_day_c': 0.0004758918797169715, 'bmi_c': -0.0011933509628687831}
+[2025-09-06 14:11:47] Random effects cov (cov_re):
+               Group    gest_day_c
+Group       0.000841  1.898944e-06
+gest_day_c  0.000002  7.415985e-08
+[2025-09-06 14:11:47] Residual variance (scale): 0.00020793679024699838
+[2025-09-06 14:11:47] Saved per_patient_tstar.csv (contains t_star_clean and bmi_group)
+[2025-09-06 14:11:47] Saved group_recommendations.csv
+[2025-09-06 14:11:47] Group recommendations (printed):
+[2025-09-06 14:11:47]   bmi_group    n  median_tstar  p90_tstar
+0        Q1   92     81.485950  82.119036
+1        Q2  102     82.848712  83.938923
+2        Q3  101     83.244392  84.018059
+3        Q4   84     88.957453  92.797798
+[2025-09-06 14:11:47] Saved per_patient_survival.csv
+[2025-09-06 14:11:47] Saved km_by_bmi_group.png
+[2025-09-06 14:11:47] Log-rank result: multivariate_logrank_test: test_statistic=5.6130766557421605, p_value=0.13202965377296746, df=3
+[2025-09-06 14:11:47] Cox diagnostics: n_events=369, bmi variance >0? True
+[2025-09-06 14:11:48] Cox fit successful (no penalizer). Summary saved.
+[2025-09-06 14:11:48] Starting measurement-error sensitivity: N_MC=500, SIM_TAUS=[0.001, 0.002, 0.005]
+[2025-09-06 14:11:48] Simulating for tau=0.001
+[2025-09-06 14:11:48] Finished tau=0.001
+[2025-09-06 14:11:48] Simulating for tau=0.002
+[2025-09-06 14:11:48] Finished tau=0.002
+[2025-09-06 14:11:48] Simulating for tau=0.005
+[2025-09-06 14:11:48] Finished tau=0.005
+[2025-09-06 14:11:48] Saved measurement_error_sim_results.csv and per_patient_results_full.csv
+[2025-09-06 14:11:48] Saved tstar_vs_tau.png
+[2025-09-06 14:11:48] Saved run_summary.csv with: {'total_obs': 1082, 'n_groups': 267, 'pct_ge3': 0.9400749063670412, 'pct_ge5': 0.1198501872659176, 'use_random_slope': True, 'group_method': 'quantile', 'N_MC': 500, 'SIM_TAUS': [0.001, 0.002, 0.005], 'n_events_first_hit': 369}
+[2025-09-06 14:11:48] Run finished. Check outputs in: C:\Users\admin\Desktop\国赛论文\问题二结果_final

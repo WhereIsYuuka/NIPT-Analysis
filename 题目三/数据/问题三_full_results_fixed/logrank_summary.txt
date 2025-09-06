@@ -1,0 +1,1 @@
+multivariate_logrank_test: stat=11.6385, p=0.008730, df=3

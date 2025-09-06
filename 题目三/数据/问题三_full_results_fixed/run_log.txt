@@ -1,0 +1,54 @@
+[2025-09-06 19:52:02] Start run. DATA_PATH=C:\Users\admin\Desktop\国赛论文\修改后附件男.xlsx OUTDIR=C:\Users\admin\Desktop\国赛论文\问题三_full_results_fixed
+[2025-09-06 19:52:02] Reading data...
+[2025-09-06 19:52:03] Raw shape: (1082, 30)
+[2025-09-06 19:52:03] Auto-detected mapping: {'patient': '孕妇代码', 'gest': '检测孕周', 'bmi': '孕妇BMI', 'yconc': 'Y染色体浓度', 'weight': '体重', 'age': '年龄', 'parity': '生产次数', 'healthy': '胎儿是否健康'}
+[2025-09-06 19:52:03] Dropped 0 rows missing core values. Remaining: 1082
+[2025-09-06 19:52:03] Computing patient-level BMI by method='mean'
+[2025-09-06 19:52:03] Group method: quantile; counts: {'Q1': 67, 'Q2': 67, 'Q4': 67, 'Q3': 66}
+[2025-09-06 19:52:03] Centering means: mean_gest=117.919593, mean_bmi=32.288791, mean_weight=83.8948336414048, mean_age=28.93992606284658
+[2025-09-06 19:52:03] Patients: 267, pct>=3=0.940, pct>=5=0.120
+[2025-09-06 19:52:03] use_random_slope=True, re_formula=~gest_day_c
+[2025-09-06 19:52:03] Fitting LMM: yconc ~ gest_day_c + bmi_c + weight_c + parity + age_c
+[2025-09-06 19:52:05] ML fit done: converged=True
+[2025-09-06 19:52:09] REML did not converge; keep ML.
+[2025-09-06 19:52:09] Saved LMM_summary.txt
+[2025-09-06 19:52:09] Fixed effects:
+Intercept     0.077834
+gest_day_c    0.000481
+bmi_c         0.000330
+weight_c     -0.000562
+parity        0.002052
+age_c        -0.000650
+dtype: float64
+[2025-09-06 19:52:09] Random effects cov:
+               Group    gest_day_c
+Group       0.000793  2.475148e-06
+gest_day_c  0.000002  1.029620e-07
+[2025-09-06 19:52:09] Residual variance (scale) = 0.000198606
+[2025-09-06 19:52:09] Saved lmm_key_metrics.txt
+[2025-09-06 19:52:09] LMM metrics: {'rmse': 0.031748494651216395, 'mae': 0.026491338974457886, 'pearson_r': 0.34466049952567823, 'var_fixed': 0.00020444785352772367, 'var_random': 5.750476263338831e-05, 'resid_var': 0.00019860581152380093, 'marginal_r2': 0.44391295704959916, 'conditional_r2': 0.5687717353862529, 'icc': 0.799738501654191, 'n_obs': 1082, 'n_patients': 267}
+[2025-09-06 19:52:09] Computing per-patient BLUPs and t* ...
+[2025-09-06 19:52:09] Saved per_patient_tstar.csv
+[2025-09-06 19:52:09] Computing group-level p50/p90 recommendations ...
+[2025-09-06 19:52:09] Saved group_recommendations.csv
+[2025-09-06 19:52:09] Group rec:
+  bmi_group   n  median_tstar  p90_tstar
+0        Q1  67     82.083752  85.828252
+1        Q2  67     81.680773  87.214985
+2        Q3  66     87.186148  87.186148
+3        Q4  67     84.902156  87.344154
+[2025-09-06 19:52:09] Preparing survival dataset (first_hit / last_day)...
+[2025-09-06 19:52:09] Saved per_patient_survival.csv
+[2025-09-06 19:52:09] Saved km_by_bmi_group_patientlevel.png
+[2025-09-06 19:52:09] Log-rank: multivariate_logrank_test: stat=11.6385, p=0.008730, df=3
+[2025-09-06 19:52:09] Cox covariates used: ['bmi', 'parity', 'age_c']
+[2025-09-06 19:52:09] Cox fit successful. concordance_index=0.5497
+[2025-09-06 19:52:09] Attempting GEE (Binomial, exchangeable) for reach ~ gest_day + bmi + ...
+[2025-09-06 19:52:10] GEE fitted. AUC (obs-level) = 0.6072
+[2025-09-06 19:52:10] Starting measurement-error Monte Carlo (approx) ...
+[2025-09-06 19:52:10] MC sim tau=0.001, N_MC=500
+[2025-09-06 19:52:10] MC sim tau=0.002, N_MC=500
+[2025-09-06 19:52:10] MC sim tau=0.005, N_MC=500
+[2025-09-06 19:52:10] Saved measurement_error_sim.csv
+[2025-09-06 19:52:10] Saved run_summary
+[2025-09-06 19:52:10] Run complete. Check outputs in: C:\Users\admin\Desktop\国赛论文\问题三_full_results_fixed

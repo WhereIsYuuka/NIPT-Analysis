@@ -1,0 +1,49 @@
+group,interval,n
+Q1,"(20.703, 30.322]","0      True
+1      True
+2      True
+3      True
+4      True
+       ... 
+262    True
+263    True
+264    True
+265    True
+266    True
+Name: bmi_for_group, Length: 267, dtype: bool"
+Q2,"(30.322, 31.742]","0      False
+1      False
+2      False
+3      False
+4      False
+       ...  
+262    False
+263    False
+264    False
+265    False
+266    False
+Name: bmi_for_group, Length: 267, dtype: bool"
+Q3,"(31.742, 33.868]","0      False
+1      False
+2      False
+3      False
+4      False
+       ...  
+262    False
+263    False
+264    False
+265    False
+266    False
+Name: bmi_for_group, Length: 267, dtype: bool"
+Q4,"(33.868, 46.875]","0      False
+1       True
+2      False
+3      False
+4      False
+       ...  
+262    False
+263    False
+264     True
+265    False
+266    False
+Name: bmi_for_group, Length: 267, dtype: bool"

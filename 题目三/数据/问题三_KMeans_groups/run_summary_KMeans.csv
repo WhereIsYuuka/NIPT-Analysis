@@ -1,0 +1,6 @@
+,0
+n_obs,1082
+n_patients,267
+K_range,4-8
+LMM_formula,yconc ~ gest_day_c + bmi_c + weight_c + parity + age_c
+LMM_converged,True

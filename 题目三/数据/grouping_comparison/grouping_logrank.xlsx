@@ -1,0 +1,7 @@
+,method,logrank_p,note,group_counts,stat
+0,clinical,,some groups < MIN_GROUP_SIZE,"{'18.5-24': 1, '24-28': 4, '28-32': 136, '>=32': 126}",
+1,custom,,some groups < MIN_GROUP_SIZE,"{'28-30': 54, '30-32': 82, '32-35': 85, '<28': 5, '>=35': 41}",
+2,quantile4,0.008729797555283218,,"{'Q1': 67, 'Q2': 67, 'Q3': 66, 'Q4': 67}",11.63852457812629
+3,kmeans4,,some groups < MIN_GROUP_SIZE,"{'KM_1': 61, 'KM_2': 96, 'KM_3': 89, 'KM_4': 21}",
+4,gmm4,,some groups < MIN_GROUP_SIZE,"{'GMM_1': 60, 'GMM_2': 85, 'GMM_3': 109, 'GMM_4': 13}",
+5,decision_tree,,,{'DT_1': 267},0.0

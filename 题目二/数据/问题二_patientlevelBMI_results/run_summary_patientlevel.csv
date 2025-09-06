@@ -1,0 +1,11 @@
+,0
+total_obs,1082
+n_patients,267
+n_groups,267
+pct_ge3,0.9400749063670412
+pct_ge5,0.1198501872659176
+use_random_slope,True
+group_method,quantile
+N_MC,500
+SIM_TAUS,"[0.001, 0.002, 0.005]"
+n_events_first_hit,260

@@ -1,0 +1,112 @@
+D:\anaconda3\envs\chatglm\python.exe "D:/Program Files/JetBrains/PyCharm 2022.2.2/plugins/python/helpers/pydev/pydevconsole.py" --mode=client --host=127.0.0.1 --port=13800 
+-------------------------------------------------------------------------------
+pydev debugger: CRITICAL WARNING: This version of python seems to be incorrectly compiled (internal generated filenames are not absolute)
+pydev debugger: The debugger may still function, but it will work slower and may miss breakpoints.
+pydev debugger: Related bug: http://bugs.python.org/issue1666807
+-------------------------------------------------------------------------------
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['C:\\Users\\admin\\PycharmProjects\\pythonProject1'])
+Python 3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:03:56) [MSC v.1929 64 bit (AMD64)]
+Type 'copyright', 'credits' or 'license' for more information
+IPython 8.25.0 -- An enhanced Interactive Python. Type '?' for help.
+PyDev console: using IPython 8.25.0
+Python 3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:03:56) [MSC v.1929 64 bit (AMD64)] on win32
+runfile('C:\\Users\\admin\\PycharmProjects\\pythonProject1\\2025数模国赛\\问题二模型.py', wdir='C:\\Users\\admin\\PycharmProjects\\pythonProject1\\2025数模国赛')
+[2025-09-06 14:11:41] Starting run. Outputs -> C:\Users\admin\Desktop\国赛论文\问题二结果_final
+[2025-09-06 14:11:41] Reading data from: C:\Users\admin\Desktop\国赛论文\修改后附件男.xlsx
+[2025-09-06 14:11:42] Raw data shape: (1082, 30)
+[2025-09-06 14:11:42] Columns: 序号, 孕妇代码, 年龄, 身高, 体重, 检测日期同最后一次月经的时间差, IVF妊娠, 检测抽血次数, 检测孕周, 孕妇BMI, 原始读段数, 在参考基因组上比对的比例, 重复读段的比例, 唯一比对的读段数  , GC含量, 13号染色体的Z值, 18号染色体的Z值, 21号染色体的Z值, X染色体的Z值, Y染色体的Z值, Y染色体浓度, X染色体浓度, 13号染色体的GC含量, 18号染色体的GC含量, 21号染色体的GC含量, 被过滤掉读段数的比例, 染色体的非整倍体, 怀孕次数, 生产次数, 胎儿是否健康
+[2025-09-06 14:11:42] Auto-detected columns mapping: {'patient': '孕妇代码', 'gest': '检测孕周', 'bmi': '孕妇BMI', 'yconc': 'Y染色体浓度', 'healthy': '胎儿是否健康'}
+[2025-09-06 14:11:42] Dropped 0 rows with missing patient/gest_day/bmi/yconc; remaining 1082 rows.
+[2025-09-06 14:11:42] BMI stats: {'count': 1082.0, 'mean': 32.28879078882743, 'std': 2.972432009058641, 'min': 20.703125, '25%': 30.208805577903597, '50%': 31.8115975966851, '75%': 33.92623703353835, 'max': 46.875}
+[2025-09-06 14:11:42] gest_day stats: {'count': 1082.0, 'mean': 117.9195933456562, 'std': 28.53412201178469, 'min': 77.0, '25%': 93.0, '50%': 112.0, '75%': 140.0, 'max': 203.0}
+[2025-09-06 14:11:42] yconc stats: {'count': 1082.0, 'mean': 0.07718697843807763, 'std': 0.03351841045704469, 'min': 0.010003887, '25%': 0.051381268, '50%': 0.07506555749999999, '75%': 0.09893700425, 'max': 0.234217554}
+[2025-09-06 14:11:42] n_groups=267, pct groups with >=3 obs=0.940, >=5 obs=0.120
+[2025-09-06 14:11:42] Decision use_random_slope = True
+[2025-09-06 14:11:42] Set N_MC=500, SIM_TAUS=[0.001, 0.002, 0.005]
+[2025-09-06 14:11:42] Clinical group unique patient counts: {'18.5-24': 1, '24-28': 7, '28-32': 151, '>=32': 147}
+[2025-09-06 14:11:42] Custom bins unique patient counts: {'28-30': 77, '30-32': 121, '32-35': 113, '<28': 8, '>=35': 53}
+custom bins unique patient counts (观测级别统计，患者可能被计入多组):
+{'28-30': 77, '30-32': 121, '32-35': 113, '<28': 8, '>=35': 53}  sum= 372
+[2025-09-06 14:11:42] Group method chosen: quantile
+[2025-09-06 14:11:42] Final bmi_group patient counts (unique):
+[2025-09-06 14:11:42] {'Q1': 92, 'Q2': 102, 'Q3': 101, 'Q4': 84}
+[2025-09-06 14:11:42] Fitting LMM: formula=yconc ~ gest_day_c + bmi_c, re_formula=~gest_day_c
+D:\anaconda3\envs\chatglm\Lib\site-packages\statsmodels\regression\mixed_linear_model.py:2237: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+  warnings.warn(msg, ConvergenceWarning)
+[2025-09-06 14:11:44] ML fit converged: True
+D:\anaconda3\envs\chatglm\Lib\site-packages\statsmodels\base\model.py:607: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  warnings.warn("Maximum Likelihood optimization failed to "
+D:\anaconda3\envs\chatglm\Lib\site-packages\statsmodels\regression\mixed_linear_model.py:2206: ConvergenceWarning: MixedLM optimization failed, trying a different optimizer may help.
+  warnings.warn(msg, ConvergenceWarning)
+D:\anaconda3\envs\chatglm\Lib\site-packages\statsmodels\regression\mixed_linear_model.py:2218: ConvergenceWarning: Gradient optimization failed, |grad| = 2625.466131
+  warnings.warn(msg, ConvergenceWarning)
+D:\anaconda3\envs\chatglm\Lib\site-packages\statsmodels\regression\mixed_linear_model.py:2237: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+  warnings.warn(msg, ConvergenceWarning)
+[2025-09-06 14:11:47] REML fit did not converge; using ML estimates as final model (fallback).
+[2025-09-06 14:11:47] Saved LMM_summary.txt
+[2025-09-06 14:11:47] LMM fixed effects:
+{'Intercept': 0.07841324942830176, 'gest_day_c': 0.0004758918797169715, 'bmi_c': -0.0011933509628687831}
+[2025-09-06 14:11:47] Random effects cov (cov_re):
+               Group    gest_day_c
+Group       0.000841  1.898944e-06
+gest_day_c  0.000002  7.415985e-08
+[2025-09-06 14:11:47] Residual variance (scale): 0.00020793679024699838
+[2025-09-06 14:11:47] Saved per_patient_tstar.csv (contains t_star_clean and bmi_group)
+[2025-09-06 14:11:47] Saved group_recommendations.csv
+[2025-09-06 14:11:47] Group recommendations (printed):
+[2025-09-06 14:11:47]   bmi_group    n  median_tstar  p90_tstar
+0        Q1   92     81.485950  82.119036
+1        Q2  102     82.848712  83.938923
+2        Q3  101     83.244392  84.018059
+3        Q4   84     88.957453  92.797798
+[2025-09-06 14:11:47] Saved per_patient_survival.csv
+[2025-09-06 14:11:47] Saved km_by_bmi_group.png
+[2025-09-06 14:11:47] Log-rank result: multivariate_logrank_test: test_statistic=5.6130766557421605, p_value=0.13202965377296746, df=3
+[2025-09-06 14:11:47] Cox diagnostics: n_events=369, bmi variance >0? True
+[2025-09-06 14:11:48] Cox fit successful (no penalizer). Summary saved.
+[2025-09-06 14:11:48] Starting measurement-error sensitivity: N_MC=500, SIM_TAUS=[0.001, 0.002, 0.005]
+[2025-09-06 14:11:48] Simulating for tau=0.001
+[2025-09-06 14:11:48] Finished tau=0.001
+[2025-09-06 14:11:48] Simulating for tau=0.002
+[2025-09-06 14:11:48] Finished tau=0.002
+[2025-09-06 14:11:48] Simulating for tau=0.005
+[2025-09-06 14:11:48] Finished tau=0.005
+[2025-09-06 14:11:48] Saved measurement_error_sim_results.csv and per_patient_results_full.csv
+[2025-09-06 14:11:48] Saved tstar_vs_tau.png
+[2025-09-06 14:11:48] Saved run_summary.csv with: {'total_obs': 1082, 'n_groups': 267, 'pct_ge3': 0.9400749063670412, 'pct_ge5': 0.1198501872659176, 'use_random_slope': True, 'group_method': 'quantile', 'N_MC': 500, 'SIM_TAUS': [0.001, 0.002, 0.005], 'n_events_first_hit': 369}
+[2025-09-06 14:11:48] Run finished. Check outputs in: C:\Users\admin\Desktop\国赛论文\问题二结果_final
+666666666666666666666666666
+custom bins unique patient counts (观测级别统计，患者可能被计入多组):
+{'28-30': 77, '30-32': 121, '32-35': 113, '<28': 8, '>=35': 53}  sum= 372
+有 99 位孕妇至少被分到 2 个不同的 custom bins（因此会重复计数）。
+示例（patient : bins_count） {'A003': 2, 'A005': 3, 'A008': 2, 'A010': 2, 'A012': 2, 'A018': 2, 'A019': 2, 'A020': 2, 'A021': 2, 'A022': 2}
+55555555555555555555555555
+每组（Q1..Q4）的 BMI 范围（基于 patient-level 的 bmi_for_group）:
+Q1: [20.70, 30.31] (min, max)
+Q2: [30.33, 31.74] (min, max)
+Q3: [31.79, 33.85] (min, max)
+Q4: [33.89, 46.88] (min, max)
+Quantile 切点 (0%,25%,50%,75%,100%):
+0.00    20.703125
+0.25    30.322427
+0.50    31.742264
+0.75    33.867747
+1.00    46.875000
+已将 patient-level Q 范围保存到: C:\Users\admin\Desktop\国赛论文\问题二结果_final\patient_level_q_ranges.csv
+55555555555555555555555555
+patient-level group counts (clinical):
+ {'28-32': 136, '>=32': 126, '24-28': 4, '18.5-24': 1}
+patient-level group counts (custom):
+ {'32-35': 85, '30-32': 82, '28-30': 54, '>=35': 41, '<28': 5}
+patient-level group counts (quantile Q1..Q4):
+ {'Q1': 67, 'Q2': 67, 'Q4': 67, 'Q3': 66}
+总孕妇数: 267
+patient-level BMI quantile cut points (0,25%,50%,75%,100%):
+{0.0: 20.703125, 0.25: 30.322427012, 0.5: 31.742263589513502, 0.75: 33.8677472596458, 1.0: 46.875}
+Per-group summary (quantile groups, patient-level):
+group_q  n   bmi_min   bmi_q25  bmi_median   bmi_q75   bmi_max  yconc_mean  yconc_median  yconc_min  yconc_max
+     Q1 67 20.703125 28.663062   29.401226 29.869547 30.310314    0.084147      0.082421   0.039992   0.174379
+     Q2 67 30.334541 30.584495   30.846277 31.163597 31.742264    0.079523      0.074705   0.036385   0.195391
+     Q3 66 31.787109 32.375144   32.808781 33.356290 33.846606    0.080990      0.082004   0.024348   0.142657
+     Q4 67 33.888889 34.471747   35.543333 36.921528 46.875000    0.064444      0.061984   0.017881   0.129396

@@ -1,0 +1,119 @@
+[2025-09-06 16:46:54] Start run. DATA_PATH=C:\Users\admin\Desktop\国赛论文\修改后附件男.xlsx OUTDIR=C:\Users\admin\Desktop\国赛论文\问题二_patientlevelBMI_results
+[2025-09-06 16:46:54] Reading data...
+[2025-09-06 16:46:54] Raw data shape: (1082, 30)
+[2025-09-06 16:46:54] Columns: 序号, 孕妇代码, 年龄, 身高, 体重, 检测日期同最后一次月经的时间差, IVF妊娠, 检测抽血次数, 检测孕周, 孕妇BMI, 原始读段数, 在参考基因组上比对的比例, 重复读段的比例, 唯一比对的读段数  , GC含量, 13号染色体的Z值, 18号染色体的Z值, 21号染色体的Z值, X染色体的Z值, Y染色体的Z值, Y染色体浓度, X染色体浓度, 13号染色体的GC含量, 18号染色体的GC含量, 21号染色体的GC含量, 被过滤掉读段数的比例, 染色体的非整倍体, 怀孕次数, 生产次数, 胎儿是否健康
+[2025-09-06 16:46:54] Auto-detected columns mapping: {'patient': '孕妇代码', 'gest': '检测孕周', 'bmi': '孕妇BMI', 'yconc': 'Y染色体浓度', 'healthy': '胎儿是否健康'}
+[2025-09-06 16:46:54] Dropped 0 rows with missing values; remaining 1082 rows.
+[2025-09-06 16:46:54] Basic stats:
+[2025-09-06 16:46:54]  BMI: {'count': 1082.0, 'mean': 32.28879078882743, 'std': 2.972432009058641, 'min': 20.703125, '25%': 30.208805577903597, '50%': 31.8115975966851, '75%': 33.92623703353835, 'max': 46.875}
+[2025-09-06 16:46:54]  gest_day: {'count': 1082.0, 'mean': 117.9195933456562, 'std': 28.53412201178469, 'min': 77.0, '25%': 93.0, '50%': 112.0, '75%': 140.0, 'max': 203.0}
+[2025-09-06 16:46:54]  yconc: {'count': 1082.0, 'mean': 0.07718697843807763, 'std': 0.03351841045704469, 'min': 0.010003887, '25%': 0.051381268, '50%': 0.07506555749999999, '75%': 0.09893700425, 'max': 0.234217554}
+[2025-09-06 16:46:54] Computing patient-level BMI (mean per patient)...
+[2025-09-06 16:46:54] Number of unique patients: 267
+[2025-09-06 16:46:54] patient-level clinical group counts: {'28-32': 136, '>=32': 126, '24-28': 4, '18.5-24': 1}
+[2025-09-06 16:46:54] patient-level custom group counts: {'32-35': 85, '30-32': 82, '28-30': 54, '>=35': 41, '<28': 5}
+[2025-09-06 16:46:54] Chosen patient-level group method: quantile
+[2025-09-06 16:46:54] patient-level bmi_group counts: {'Q1': 67, 'Q2': 67, 'Q4': 67, 'Q3': 66}
+[2025-09-06 16:46:54] Patient-level BMI quantile cut points (0%,25%,50%,75%,100%): 20.703, 30.322, 31.742, 33.868, 46.875
+[2025-09-06 16:46:54] Patient-level quantile intervals:
+[2025-09-06 16:46:54]  Q1: BMI (20.703, 30.322], patients = 0      True
+1      True
+2      True
+3      True
+4      True
+       ... 
+262    True
+263    True
+264    True
+265    True
+266    True
+Name: bmi_for_group, Length: 267, dtype: bool
+[2025-09-06 16:46:54]  Q2: BMI (30.322, 31.742], patients = 0      False
+1      False
+2      False
+3      False
+4      False
+       ...  
+262    False
+263    False
+264    False
+265    False
+266    False
+Name: bmi_for_group, Length: 267, dtype: bool
+[2025-09-06 16:46:54]  Q3: BMI (31.742, 33.868], patients = 0      False
+1      False
+2      False
+3      False
+4      False
+       ...  
+262    False
+263    False
+264    False
+265    False
+266    False
+Name: bmi_for_group, Length: 267, dtype: bool
+[2025-09-06 16:46:54]  Q4: BMI (33.868, 46.875], patients = 0      False
+1       True
+2      False
+3      False
+4      False
+       ...  
+262    False
+263    False
+264     True
+265    False
+266    False
+Name: bmi_for_group, Length: 267, dtype: bool
+[2025-09-06 16:46:54] Merging patient-level bmi_group back to observation-level data...
+[2025-09-06 16:46:54] Merged. Example rows:
+[2025-09-06 16:46:54] patient  gest_day       bmi  bmi_for_group bmi_group
+   A001        83 28.125000      28.515625        Q1
+   A001       111 28.515625      28.515625        Q1
+   A001       141 28.515625      28.515625        Q1
+   A001       160 28.906250      28.515625        Q1
+   A002        97 33.331832      33.962434        Q4
+[2025-09-06 16:46:54] Centering: mean_gest=117.919593, mean_bmi=32.288791
+[2025-09-06 16:46:54] Patient counts summary: n_groups=267, pct_ge3=0.940, pct_ge5=0.120
+[2025-09-06 16:46:54] use_random_slope = True, re_formula = ~gest_day_c
+[2025-09-06 16:46:54] N_MC=500, SIM_TAUS=[0.001, 0.002, 0.005]
+[2025-09-06 16:46:54] Fitting LMM: formula=yconc ~ gest_day_c + bmi_c, groups=patient, re_formula=~gest_day_c
+[2025-09-06 16:46:56] ML fit converged: True
+[2025-09-06 16:47:00] REML did not converge; using ML result as final.
+[2025-09-06 16:47:00] Saved LMM_summary.txt
+[2025-09-06 16:47:00] Fixed effects: {'Intercept': 0.07841324942830176, 'gest_day_c': 0.0004758918797169715, 'bmi_c': -0.0011933509628687831}
+[2025-09-06 16:47:00] Random effects covariance (cov_re):
+               Group    gest_day_c
+Group       0.000841  1.898944e-06
+gest_day_c  0.000002  7.415985e-08
+[2025-09-06 16:47:00] Residual variance (scale) = 0.000207937
+[2025-09-06 16:47:01] Prediction metrics (obs vs pred): RMSE=0.032177, MAE=0.026793, Pearson r=0.308038
+[2025-09-06 16:47:01] Variance decomposition: var_fixed=0.000182365, var_random=0.000044223, resid_var=0.000207937
+[2025-09-06 16:47:01] marginal_R2=0.419689, conditional_R2=0.521462, ICC~0.801765
+[2025-09-06 16:47:01] Computing per-patient t_star using BLUPs...
+[2025-09-06 16:47:01] Saved per_patient_tstar_patientlevel.csv
+[2025-09-06 16:47:01] Computing group-level recommendations (patient-level groups)...
+[2025-09-06 16:47:01] Saved group_recommendations_patientlevel.csv
+[2025-09-06 16:47:01] Group recommendations (patient-level):
+[2025-09-06 16:47:01]   bmi_group   n  median_tstar  p90_tstar
+0        Q1  67     78.099211  78.099211
+1        Q2  67     81.881629  82.198172
+2        Q3  66     84.211475  84.211475
+3        Q4  67     88.957453  92.797798
+[2025-09-06 16:47:01] Preparing survival data (time to first observed yconc >= THRESH)...
+[2025-09-06 16:47:01] Saved per_patient_survival_patientlevel.csv
+[2025-09-06 16:47:01] Saved km_by_bmi_group_patientlevel.png
+[2025-09-06 16:47:01] Log-rank result: multivariate_logrank_test: test_statistic=11.63852457812629, p_value=0.008729797555283218, df=3
+[2025-09-06 16:47:01] Cox diagnostics: n_events=260, bmi variance >0? True
+[2025-09-06 16:47:01] Cox fit successful (no penalizer). Saved cox_summary_patientlevel.csv
+[2025-09-06 16:47:01] Measurement-error sensitivity: N_MC=500, SIM_TAUS=[0.001, 0.002, 0.005]
+[2025-09-06 16:47:01] Simulating for tau=0.001 ...
+[2025-09-06 16:47:01] Finished tau=0.001
+[2025-09-06 16:47:01] Simulating for tau=0.002 ...
+[2025-09-06 16:47:01] Finished tau=0.002
+[2025-09-06 16:47:01] Simulating for tau=0.005 ...
+[2025-09-06 16:47:01] Finished tau=0.005
+[2025-09-06 16:47:01] Saved measurement_error_sim_patientlevel.csv and per_patient_results_patientlevel_full.csv
+[2025-09-06 16:47:01] Saved tstar_vs_tau_patientlevel.png
+[2025-09-06 16:47:01] Saved run_summary_patientlevel.csv
+[2025-09-06 16:47:01] Saved lmm_key_results_patientlevel.txt with key metrics.
+[2025-09-06 16:47:01] Run complete. Outputs saved to: C:\Users\admin\Desktop\国赛论文\问题二_patientlevelBMI_results
