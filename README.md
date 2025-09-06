@@ -123,10 +123,10 @@ $$
 
 差值公式：
 $$
-diff_i = BMI_{rounded} - cBMI_i
+diff_i = BMI_{\text{rounded}} - cBMI_i
 $$
 
-其中diff_i为自主评测差值_1，cBMI_i为当前孕妇i的BMI指标。
+其中 $diff_i$ 为自主评测差值\_1，$cBMI_i$ 为当前孕妇 $i$ 的 BMI 指标。  
 
 5. 标记状态为：一致（OK）、不匹配（Mismatch）、缺失（Missing）或异常（Implausible）。
 
@@ -137,14 +137,12 @@ $$
 
 此处的TOLERANCE团队设置为足够反应数据是否异常的0.1，对于可能存在的异常BMI值，设置警戒值:
 $$
-MIN\_BMI = 10\\
-MAX\_BMI = 60
+MIN\_BMI = 10, \quad MAX\_BMI = 60 
 $$
 
 当测量值超出最大警戒值或小于最小警戒值，即：
 $$
-BMI_{rounded} < MIN\_BMI\ (or\ cBMI_i)\\
-BMI_{rounded} > MAX\_BMI\ (or\ cBMI_i)
+BMI_{\text{rounded}} < MIN\_BMI \quad \text{or} \quad BMI_{\text{rounded}} > MAX\_BMI 
 $$
 
 将提供Implausible预警标记。
@@ -180,7 +178,7 @@ $$
 
 其中，随机效应向量：
 $$
-b_j = (b_{0j}, b_{1j})^T \sim N(0, G)
+b_j = (b_{0j}, b_{1j})^T \sim N(0, G) 
 $$
 
 $$
@@ -193,7 +191,7 @@ $$
 
 残差方差：
 $$
-\sigma^2 \approx 0.00020793679 ~~~~~~~~~~ \sigma \approx 0.001442
+\sigma^2 \approx 0.00020793679, \quad \sigma \approx 0.001442 
 $$
 
 模型的解释力和评价指标：
@@ -224,10 +222,10 @@ $$
 若分母≤0（即该孕妇预测斜率非正）或 $t^*_j$ 不在合理时间范围，则判为"无法达标/需长期随访"。
 
 3. 组级汇总(推荐时点)
-对BMI组G，把组内所有可解的 $t^*_j$ 排序并取第p百分位（例如p=0.9）；用该 $t^*_G$ 作为"该组的推荐首NIPT时点"：
+对 BMI 组 $G$，把组内所有可解的 $t_j$ 排序并取第 $p$ 百分位（例如 $p=0.9$）；用该 $t_G$ 作为 “该组的推荐首 NIPT 时点”：  
 
 $$
-t^*_G = quantile_p(\{t^*_j: j \in G\})
+t_G = \text{quantile}_p\{t_j : j \in G\}
 $$
 
 4. 模型最终选择patient-level分组策略，得到如下结果：
@@ -295,13 +293,12 @@ $$
 
 若观测到的Y浓度含有测量误差：
 $$
-Y^{obs}_{ij}=Y_{ij}+\eta_{ij} \\
-\eta_{ij}\sim N(0,\sigma_m^2)
+Y^{obs}_{ij} = Y_{ij} + \eta_{ij}, \quad \eta_{ij} \sim N(0,\sigma_m^2) 
 $$
 
 阈值方程近似线性解：
 $$
-t^*_i \approx t^{*(0)}_i + \frac{\eta}{\beta_1 + b_{1i}}
+t_i \approx t^{(0)}_i + \frac{\eta}{\beta_1 + b_{1i}} 
 $$
 
 斜率小则会放大误差，需向后"保守延后"推荐时点以降低假阴风险。
