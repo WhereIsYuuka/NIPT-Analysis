@@ -1,6 +1,8 @@
-﻿# NIPT-Analysis: 基于多因素的无创产前检测（NIPT）数据建模与最佳检测时机研究
+﻿﻿> **链接错误提示**：如果您是通过PDF文件中的链接访问并遇到404错误页面，这可能是因为链接末尾误包含了句号。**本仓库的正确地址是：[https://github.com/WhereIsYuuka/NIPT-Analysis](https://github.com/WhereIsYuuka/NIPT-Analysis)**
 
-<p align="center">
+# NIPT-Analysis: 基于多因素的无创产前检测（NIPT）数据建模与最佳检测时机研究
+
+<p align="left">
   <img src="https://img.shields.io/badge/Python-3.8+-blue.svg" alt="Python Version">
   <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/Status-研究中-orange.svg" alt="Status">
@@ -34,6 +36,7 @@ NIPT-Analysis/
 ├── 题目四/
 │   ├── 代码/					# 题目四源代码目录
 │   └── 数据/
+├── requirements.txt
 └── 数据处理脚本/				# 数据处理 + 数据可视化
 ```
 
@@ -191,7 +194,7 @@ $$
 
 残差方差：
 $$
-\sigma^2 \approx 0.00020793679, \quad \sigma \approx 0.001442 
+\sigma^2 \approx 0.00020793679, \quad \sigma \approx 0.001442 
 $$
 
 模型的解释力和评价指标：
@@ -302,5 +305,4 @@ t_i \approx t^{(0)}_i + \frac{\eta}{\beta_1 + b_{1i}}
 $$
 
 斜率小则会放大误差，需向后"保守延后"推荐时点以降低假阴风险。
-
 
